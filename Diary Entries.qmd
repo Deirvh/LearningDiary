@@ -1,0 +1,56 @@
+---
+title: "Learning Diary"
+author: "Deirbhile Hughes"
+bibliography: "References.bib"
+toc: true
+format: html
+editor: visual
+---
+
+                
+
+# Entry 1- 05/02/24
+
+## *The Problem*
+
+After using basic statistics and plotting in a boxp lot using relevant r script, the statistics for male and female were visualised on incorrect sides of the boxplot, i.e. male statistics presenting over female statistics.
+
+![Usageplot](Resources/images/Usageplot.png)
+
+## *The Solution*
+
+```{r, echo = TRUE, eval=FALSE, message = FALSE, error= FALSE}
+text(1, mean(MaleUsers$VALUE), paste("Mean:", round(mean(MaleUsers$VALUE), 2), "\nSD:", round(sd(MaleUsers$VALUE), 2)), pos = 2, col = "black")
+text(2, mean(FemaleUsers$VALUE), paste("Mean:", round(mean(FemaleUsers$VALUE), 2), "\nSD:", round(sd(FemaleUsers$VALUE), 2)), pos = 4, col = "black")
+```
+
+Solving this problem took some trial and error, I had to adjust some factors in my code such as **pos** to alter the positioning of the statistics text in the boxplot @horton2015using.
+
+# Entry 2- 18/02/24
+
+## *The Problem*
+
+I tried to create a linear regression model using two variables, but one of the categories "sex" would not work initially as it was not a numerical variable. I had to research regarding how a categorical variable could be included in the linear regression.
+
+## *The Solution*
+
+Creating levels for sex (0,1,2) allowed the different categories in the sex variable to be used in the regression model. This was done through R by encoding sex as a factor @zeng2023analytical.
+
+```{r, echo = TRUE, eval=FALSE, message = FALSE, error= FALSE}
+
+NonDeviceUserData$Sex <- factor(NonDeviceUserData$Sex)
+```
+
+# Entry 3- 09/02/24
+
+## *The Problem*
+
+I have been trying different rstudio packages related to visualising the data being used. I find once I export these graphs to save them for future use in assignments or practice, the graphs export in a manner that does not represent the data well, such as being spread out too far.
+
+## *The Solution*
+
+The lecture in week 4 demonstrates the use of quarto as a publication method of rstudio practices. Opening Rstudio as a qaurto document means all my work is saved in a html file. The graphs displayed in this file display better and are easier to go back and refer to.
+
+# Bibliography
+
+<!-- Include generated bibliography here -->
